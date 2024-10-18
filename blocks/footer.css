@@ -1,0 +1,10 @@
+.footer {
+  color: #545454;
+}
+
+.footer__copyright {
+  font-family: Inter;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 21.78px;
+}
