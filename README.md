@@ -12,5 +12,5 @@
 This is my first project alone of the Software Engineering program at TripleTen. It was created using HTML and CSS, based on the design brief.
 This project is made so all the elements are displayed correctly on popular screen sizes.
 
-- [Link to the project](https://github.com/alaysiams/se_project_aroundtheus.git)
-- [Link to video](https://drive.google.com/file/d/1gbxydbQI0MApw9XJ_WtFmrK3UH1kaTrl/view?usp=drive_link)
+- [Link to the project](https://alaysiams.github.io/se_project_aroundtheus/)
+- [Link to video](https://drive.google.com/file/d/1gbxydbQI0MApw9XJ_WtFmrK3UH1kaTrl/view?usp=sharing)

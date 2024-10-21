@@ -12,6 +12,7 @@
     "description description";
   grid-template-columns: minmax(auto, 375px) auto;
   column-gap: 18px;
+  row-gap: 7px;
 }
 
 .profile__image {
@@ -35,6 +36,7 @@
 .profile__edit:hover {
   transition: transform 0.3s ease;
   cursor: pointer;
+  opacity: 60%;
 }
 
 .profile__add {
@@ -43,11 +45,13 @@
   height: 50px;
   margin-left: auto;
   border: 2px solid #ffffff;
+  border-radius: 2px;
 }
 
 .profile__add:hover {
   transition: transform 0.3s ease;
   cursor: pointer;
+  opacity: 60%;
 }
 
 .profile__name {
@@ -74,7 +78,7 @@
   white-space: nowrap;
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 775px) {
   .profile {
     flex-direction: column;
   }
