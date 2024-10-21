@@ -2,6 +2,7 @@
   display: flex;
   align-items: center;
   padding-top: 40px;
+  padding-bottom: 51px;
 }
 
 .profile__info {
@@ -31,11 +32,22 @@
   align-self: center;
 }
 
+.profile__edit:hover {
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
 .profile__add {
   background: transparent url(../images/add.svg) center no-repeat;
   width: 150px;
   height: 50px;
   margin-left: auto;
+  border: 2px solid #ffffff;
+}
+
+.profile__add:hover {
+  transition: transform 0.3s ease;
+  cursor: pointer;
 }
 
 .profile__name {
