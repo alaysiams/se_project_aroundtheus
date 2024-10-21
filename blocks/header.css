@@ -3,6 +3,7 @@
   max-width: 880px;
   border-bottom: 1px solid #545454;
   opacity: 70%;
+  padding-bottom: 41px;
 }
 
 @media screen and (max-width: 640px) {
