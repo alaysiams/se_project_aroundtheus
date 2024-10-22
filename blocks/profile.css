@@ -100,3 +100,29 @@
     width: 100%;
   }
 }
+
+@media screen and (max-width: 620px) {
+  .profile {
+    flex-direction: column;
+  }
+
+  .profile__info {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 282px;
+    justify-content: center;
+    margin: 30px auto 36px;
+    gap: 14px 10px;
+  }
+
+  .profile__edit {
+    height: 18px;
+    width: 18px;
+  }
+
+  .profile__add {
+    margin: 0 auto;
+    width: 100%;
+    background-size: 16px;
+  }
+}

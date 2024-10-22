@@ -13,4 +13,4 @@ This is my first project alone of the Software Engineering program at TripleTen.
 This project is made so all the elements are displayed correctly on popular screen sizes.
 
 - [Link to the project](https://alaysiams.github.io/se_project_aroundtheus/)
-- [Link to video](https://drive.google.com/file/d/1gbxydbQI0MApw9XJ_WtFmrK3UH1kaTrl/view?usp=sharing)
+- [Link to video](https://drive.google.com/file/d/1IuKl_H7_bBJEbjIeykLm2AdvtR5fRDLK/view?usp=sharing)

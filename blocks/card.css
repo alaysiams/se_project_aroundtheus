@@ -45,4 +45,5 @@
 .card__like:hover {
   transition: transform 0.3s ease;
   cursor: pointer;
+  opacity: 60%;
 }

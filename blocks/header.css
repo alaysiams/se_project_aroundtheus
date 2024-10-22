@@ -1,8 +1,6 @@
 .header {
   margin-top: 45px;
-  max-width: 880px;
   border-bottom: 1px solid #545454;
-  opacity: 70%;
   padding-bottom: 41px;
 }
 
@@ -10,5 +8,12 @@
   .header {
     margin: 0;
     width: 100%;
+    padding: 0;
+  }
+
+  .header__logo {
+    max-width: 126px;
+    width: 100%;
+    padding: 28px 0 32px 27px;
   }
 }
