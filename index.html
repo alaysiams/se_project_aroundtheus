@@ -24,7 +24,7 @@
           <img src="./images/Avatar.svg" alt="Avatar" class="profile__image" />
           <div class="profile__info">
             <h1 class="profile__name">Jacques Cousteau</h1>
-            <button class="profile__edit"></button>
+            <button class="profile__edit" id="profile-edit-button"></button>
             <p class="profile__description">Explorer</p>
           </div>
           <button class="profile__add"></button>
@@ -104,9 +104,9 @@
         <p class="footer__copyright">&copy; 2022 Around The U.S.</p>
       </footer>
     </div>
-    <div class="modal modal_opened">
+    <div class="modal modal_opened" id="profile-edit-modal">
       <div class="modal__container">
-        <button class="modal__close"></button>
+        <button class="modal__close" id="modal-close-button"></button>
         <p class="modal__heading">Edit Profile</p>
         <form class="modal__form">
           <input type="text" name="name" />
