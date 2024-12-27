@@ -53,11 +53,14 @@
 
 .modal__input {
   padding-bottom: 13px;
-  border-bottom: 1px solid #000000;
-  border: none;
+  border: 1px solid rgba(0, 0, 0, 0.2);
   font-family: Inter, Arial, Helvetica, sans-serif;
   font-size: 14px;
   font-weight: 400;
+  line-height: 27.26px;
+  max-width: 358px;
+  text-align: start;
+  width: 100%;
 }
 
 .modal__button {
@@ -65,12 +68,10 @@
   width: 358px;
   height: 50.15px;
   border-radius: 2px;
-  opacity: 0px;
   color: white;
   font-family: Inter, Arial, Helvetica, sans-serif;
   font-size: 18px;
   font-weight: 400;
-  line-height: 21.78px;
   text-align: center;
   line-height: 22px;
   margin: 25px 0 0;
@@ -89,6 +90,7 @@
 
   .modal__heading {
     font-size: 18px;
+    line-height: 22px;
   }
 
   .modal__button {
