@@ -20,10 +20,14 @@
           <img src="./images/Avatar.svg" alt="Avatar" class="profile__image" />
           <div class="profile__info">
             <h1 class="profile__name">Jacques Cousteau</h1>
-            <button class="profile__edit" id="profile-edit-button"></button>
+            <button
+              class="profile__edit"
+              id="profile-edit-button"
+              type="button"
+            ></button>
             <p class="profile__description">Explorer</p>
           </div>
-          <button class="profile__add" id="profile-add"></button>
+          <button class="profile__add" id="profile-add" type="button"></button>
         </section>
         <section class="cards page__section">
           <ul class="cards__list"></ul>
@@ -36,8 +40,12 @@
 
     <div class="modal" id="profile-edit-modal">
       <div class="modal__container">
-        <button class="modal__close" id="modal-close-button"></button>
-        <p class="modal__heading">Edit Profile</p>
+        <button
+          class="modal__close"
+          id="modal-close-button"
+          type="button"
+        ></button>
+        <h2 class="modal__heading">Edit Profile</h2>
         <form class="modal__form">
           <input
             class="modal__input"
@@ -53,7 +61,7 @@
             placeholder="Description"
             id="profile-description-input"
           />
-          <button class="modal__button">Save</button>
+          <button class="modal__button" type="submit">Save</button>
         </form>
       </div>
     </div>
