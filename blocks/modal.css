@@ -58,7 +58,8 @@
 
 .modal__input {
   padding-bottom: 13px;
-  border: 1px solid rgba(0, 0, 0, 0.2);
+  border: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   font-family: Inter, Arial, Helvetica, sans-serif;
   font-size: 14px;
   font-weight: 400;
@@ -81,10 +82,12 @@
   text-align: center;
   line-height: 22px;
   margin: 25px 0 0;
+  cursor: pointer;
+  border: 0;
 }
 
 .modal__button:hover {
-  opacity: 60%;
+  opacity: 80%;
 }
 
 @media screen and (max-width: 630px) {
@@ -113,13 +116,11 @@
 
   .modal__button {
     font-size: 14px;
-    line-height: 16.94px;
+    line-height: 16px;
     width: 238px;
     height: 46px;
     border-radius: 2px;
     font-family: Inter, Arial, Helvetica, sans-serif;
-    font-size: 14px;
-    line-height: 16px;
     margin: 0;
   }
 }
