@@ -116,11 +116,9 @@
 
   .modal__button {
     font-size: 14px;
-    line-height: 16px;
+    line-height: 17px;
     width: 238px;
     height: 46px;
-    border-radius: 2px;
-    font-family: Inter, Arial, Helvetica, sans-serif;
     margin: 0;
   }
 }
