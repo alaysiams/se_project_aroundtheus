@@ -37,7 +37,7 @@
   cursor: pointer;
 }
 
-.modal__close:hover {
+.edit__close:hover {
   opacity: 60%;
 }
 
@@ -97,7 +97,7 @@
     padding: 25px 22px;
   }
 
-  .modal__close {
+  .edit__close {
     width: 26px;
     height: 26px;
     bottom: calc(100% + 18px);
