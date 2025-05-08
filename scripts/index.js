@@ -96,7 +96,7 @@ cardAddButton.addEventListener("click", () => {
 });
 
 cardAddCloseButton.addEventListener("click", function () {
-  closePopup(profileEditModal);
+  closePopup(cardAddModal);
 });
 
 initialCards.forEach((cardData) => {
