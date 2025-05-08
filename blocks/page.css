@@ -7,9 +7,6 @@
 .page__content {
   display: flex;
   flex-direction: column;
-}
-
-.page__section {
   max-width: 880px;
   width: 100%;
   position: relative;
