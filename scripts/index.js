@@ -49,6 +49,7 @@ const cardAddCloseButton = cardAddModal.querySelector("#card-close-button");
 const cardEditForm = document.querySelector("#card-form");
 const cardNameInput = document.querySelector("#card-name-input");
 const cardLinkInput = document.querySelector("#card-description-input");
+const cardLikeButton = document.querySelectorAll(".card__like");
 
 // Functions //
 
@@ -66,7 +67,7 @@ function getCardElement(cardData) {
   const cardTitleEl = cardElement.querySelector(".card__title");
   cardTitleEl.textContent = cardData.name;
   cardImageEl.src = cardData.link;
-  cardImageEl.alt = cardData.link;
+  cardImageEl.alt = cardData.name;
 
   return cardElement;
 }
@@ -123,6 +124,12 @@ cardEditForm.addEventListener("submit", handleCardFormSubmit);
 
 initialCards.forEach((cardData) => {
   renderCard(cardData);
+});
+
+cardListEl.addEventListener("click", (event) => {
+  if (event.target.classList.contains("card__like")) {
+    event.target.classList.toggle("card__like_active");
+  }
 });
 
 initialCards.forEach(function (obj) {
