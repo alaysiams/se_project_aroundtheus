@@ -29,23 +29,26 @@ const initialCards = [
 
 const profileEditButton = document.querySelector("#profile-edit-button");
 const profileEditModal = document.querySelector("#edit-popup");
-const profileEditCloseButton =
-  profileEditModal.querySelector("#edit-close-button");
+const profileEditCloseButton = profileEditModal.querySelector(
+  "#profile-close-button"
+);
 const profileName = document.querySelector("#profile-name");
 const profileDescription = document.querySelector(".profile__description");
-const profileNameInput = document.querySelector("#name-input");
-const profileDescriptionInput = document.querySelector("#description-input");
-const profileEditForm = profileEditModal.querySelector(".modal__form");
+const profileNameInput = document.querySelector("#profile-name-input");
+const profileDescriptionInput = document.querySelector(
+  "#profile-description-input"
+);
+const profileEditForm = profileEditModal.querySelector("#profile-form");
 const cardListEl = document.querySelector(".cards__list");
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
 
 const cardAddModal = document.querySelector("#add-popup");
 const cardAddButton = document.querySelector("#add-button");
-const cardAddCloseButton = cardAddModal.querySelector("#edit-close-button");
-const cardEditForm = document.querySelector(".modal__form");
-const cardNameInput = document.querySelector("#name-input");
-const cardLinkInput = document.querySelector("#description-input");
+const cardAddCloseButton = cardAddModal.querySelector("#card-close-button");
+const cardEditForm = document.querySelector("#card-form");
+const cardNameInput = document.querySelector("#card-name-input");
+const cardLinkInput = document.querySelector("#card-description-input");
 
 // Functions //
 
@@ -80,15 +83,16 @@ function handleProfileFormSubmit(e) {
   profileName.textContent = profileNameInput.value;
   profileDescription.textContent = profileDescriptionInput.value;
 
-  closePopup();
+  closePopup(profileEditModal);
 }
 
 function handleCardFormSubmit(e) {
   e.preventDefault();
   const name = cardNameInput.value;
-  const link = cardLinkInput;
+  const link = cardLinkInput.value;
 
-  closePopup();
+  const newCard = getCardElement({ name, link });
+  cardListEl.prepend(newCard);
 }
 
 // Event Listeners //
@@ -118,8 +122,7 @@ cardAddCloseButton.addEventListener("click", function () {
 cardEditForm.addEventListener("submit", handleCardFormSubmit);
 
 initialCards.forEach((cardData) => {
-  const cardElement = getCardElement(cardData);
-  cardListEl.prepend(cardElement);
+  renderCard(cardData);
 });
 
 initialCards.forEach(function (obj) {
