@@ -1,4 +1,40 @@
-.edit {
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.modal {
   position: fixed;
   top: 0;
   left: 0;
@@ -10,11 +46,11 @@
   padding: 0 19px;
 }
 
-.popup_opened {
+.modal_opened {
   display: flex;
 }
 
-.edit__container {
+.modal__container {
   background-color: white;
   margin: auto;
   padding: 36px;
@@ -23,7 +59,7 @@
   box-sizing: border-box;
 }
 
-.edit__close {
+.modal__close {
   background-image: url("../images/Close.svg");
   border: none;
   background-color: transparent;
@@ -37,11 +73,11 @@
   cursor: pointer;
 }
 
-.edit__close:hover {
+.modal__close:hover {
   opacity: 60%;
 }
 
-.popup__heading {
+.modal__popup-heading {
   font-family: Inter, Arial, Helvetica, sans-serif;
   font-size: 24px;
   font-weight: 900;
@@ -56,7 +92,7 @@
   gap: 30px;
 }
 
-.edit__name {
+.modal__name {
   padding-bottom: 13px;
   border: 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
@@ -90,14 +126,43 @@
   opacity: 80%;
 }
 
+.modal__preview-image {
+  max-width: 75vw;
+  max-height: 75vh;
+  object-fit: contain;
+  margin: 0 auto;
+  border-radius: 8px;
+  position: relative;
+}
+
+.modal__preview-title {
+  width: 291px;
+  height: 12px;
+  font-family: Inter;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 100%;
+  letter-spacing: 0%;
+}
+
+.modal__preview {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0;
+  background-color: transparent;
+  position: relative;
+  box-sizing: border-box;
+}
+
 @media screen and (max-width: 630px) {
-  .edit__container {
+  .modal__container {
     width: 282px;
     height: 322px;
     padding: 25px 22px;
   }
 
-  .edit__close {
+  .modal__close {
     width: 26px;
     height: 26px;
     bottom: calc(100% + 18px);
@@ -120,5 +185,37 @@
     width: 238px;
     height: 46px;
     margin: 0;
+  }
+
+  .modal__preview {
+    width: 282px;
+    height: 323px;
+    margin: auto;
+    padding: 0;
+    position: relative;
+    background-color: transparent;
+  }
+
+  .modal__preview-image {
+    max-width: 282px;
+    max-height: 282px;
+    object-fit: contain;
+    margin: 0 auto;
+    border-radius: 8px;
+  }
+  .modal__preview-title {
+    width: 240x;
+    height: 12px;
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 100%;
+    background-color: white;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .modal__container {
+    padding: 0;
   }
 }

@@ -54,3 +54,23 @@
   cursor: pointer;
   opacity: 60%;
 }
+
+.card__delete {
+  background: transparent url(../images/Trash.svg) center no-repeat;
+  width: 23px;
+  height: 18px;
+  border: none;
+  top: 25px;
+  left: 246px;
+  position: relative;
+}
+
+.card__delete_active {
+  background-image: url(../images/TrashActive.svg);
+}
+
+.card__delete:hover {
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  opacity: 60%;
+}

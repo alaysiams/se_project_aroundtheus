@@ -28,7 +28,7 @@ const initialCards = [
 // Elements //
 
 const profileEditButton = document.querySelector("#profile-edit-button");
-const profileEditModal = document.querySelector("#edit-popup");
+const profileEditModal = document.querySelector("#modal-popup");
 const profileEditCloseButton = profileEditModal.querySelector(
   "#profile-close-button"
 );
@@ -50,14 +50,19 @@ const cardEditForm = document.querySelector("#card-form");
 const cardNameInput = document.querySelector("#card-name-input");
 const cardLinkInput = document.querySelector("#card-description-input");
 
+const previewModal = document.querySelector("#preview");
+const previewImage = previewModal.querySelector(".modal__preview-image");
+const closePreviewModal = document.querySelector("#preview-close-button");
+const previewTitle = previewModal.querySelector(".modal__preview-title");
+
 // Functions //
 
 function closePopup(popup) {
-  popup.classList.remove("popup_opened");
+  popup.classList.remove("modal_opened");
 }
 
 function openPopup(popup) {
-  popup.classList.add("popup_opened");
+  popup.classList.add("modal_opened");
 }
 
 function getCardElement(cardData) {
@@ -71,6 +76,19 @@ function getCardElement(cardData) {
 
   cardLike.addEventListener("click", () => {
     cardLike.classList.toggle("card__like_active");
+  });
+
+  const cardDelete = cardElement.querySelector(".card__delete");
+
+  cardDelete.addEventListener("click", () => {
+    cardElement.remove();
+  });
+
+  cardImageEl.addEventListener("click", () => {
+    previewImage.src = cardData.link;
+    previewImage.alt = cardData.name;
+    previewTitle.textContent = cardData.name;
+    openPopup(previewModal);
   });
 
   return cardElement;
@@ -98,6 +116,9 @@ function handleCardFormSubmit(e) {
 
   const newCard = getCardElement({ name, link });
   cardListEl.prepend(newCard);
+
+  cardEditForm.reset(); // Clear input fields
+  closePopup(cardAddModal); // Close the modal
 }
 
 // Event Listeners //
@@ -126,14 +147,10 @@ cardAddCloseButton.addEventListener("click", function () {
 
 cardEditForm.addEventListener("submit", handleCardFormSubmit);
 
+closePreviewModal.addEventListener("click", () => {
+  closePopup(previewModal);
+});
+
 initialCards.forEach((cardData) => {
   renderCard(cardData);
-});
-
-initialCards.forEach(function (obj) {
-  console.log(obj);
-});
-
-initialCards.forEach((cardData) => {
-  cardsWrap.prepend(getCardElement(initialCards[i]));
 });

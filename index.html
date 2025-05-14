@@ -40,24 +40,24 @@
       </footer>
     </div>
 
-    <div class="edit" id="edit-popup">
-      <div class="edit__container">
+    <div class="modal" id="modal-popup">
+      <div class="modal__container">
         <button
-          class="edit__close"
+          class="modal__close"
           id="profile-close-button"
           type="button"
         ></button>
-        <h2 class="popup__heading">Edit Profile</h2>
+        <h2 class="modal__popup-heading">Edit Profile</h2>
         <form class="modal__form" id="profile-form">
           <input
-            class="edit__name"
+            class="modal__name"
             type="text"
             name="title"
             placeholder="Name"
             id="profile-name-input"
           />
           <input
-            class="edit__name"
+            class="modal__name"
             type="text"
             name="description"
             placeholder="Description"
@@ -68,24 +68,24 @@
       </div>
     </div>
 
-    <div class="edit" id="add-popup">
-      <div class="edit__container">
+    <div class="modal" id="add-popup">
+      <div class="modal__container">
         <button
-          class="edit__close"
+          class="modal__close"
           id="card-close-button"
           type="button"
         ></button>
-        <h2 class="popup__heading">New Place</h2>
+        <h2 class="modal__popup-heading">New Place</h2>
         <form class="modal__form" id="card-form">
           <input
-            class="edit__name"
+            class="modal__name"
             type="text"
             name="title"
             placeholder="Title"
             id="card-name-input"
           />
           <input
-            class="edit__name"
+            class="modal__name"
             type="text"
             name="description"
             placeholder="Image link"
@@ -96,8 +96,21 @@
       </div>
     </div>
 
+    <div class="modal" id="preview">
+      <div class="modal__container modal__preview">
+        <button
+          class="modal__close"
+          id="preview-close-button"
+          type="button"
+        ></button>
+        <img class="modal__preview-image" src="#" alt="" />
+        <p class="modal__preview-title"></p>
+      </div>
+    </div>
+
     <template id="card-template">
       <li class="card">
+        <button class="card__delete" type="button"></button>
         <img src="" class="card__image" alt="" />
         <div class="card__description">
           <h2 class="card__title"></h2>
