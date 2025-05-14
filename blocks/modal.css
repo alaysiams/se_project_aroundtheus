@@ -42,8 +42,22 @@
   right: 0;
   z-index: 999;
   display: none;
+  opacity: 0;
   background-color: rgba(0, 0, 0, 0.5);
   padding: 0 19px;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.modal.modal_opened {
+  display: flex;
+  opacity: 1;
+  pointer-events: auto;
+  animation: fadeIn 0.3s forwards;
+}
+
+.modal.modal_closing {
+  animation: fadeOut 0.3s forwards;
 }
 
 .modal_opened {
@@ -131,7 +145,7 @@
   max-height: 75vh;
   object-fit: contain;
   margin: 0 auto;
-  border-radius: 8px;
+
   position: relative;
 }
 
@@ -201,16 +215,14 @@
     max-height: 282px;
     object-fit: contain;
     margin: 0 auto;
-    border-radius: 8px;
   }
   .modal__preview-title {
-    width: 240x;
+    width: 240px;
     height: 12px;
     font-family: Inter, Arial, Helvetica, sans-serif;
     font-weight: 400;
     font-size: 12px;
     line-height: 100%;
-    background-color: white;
   }
 }
 

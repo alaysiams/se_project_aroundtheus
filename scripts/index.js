@@ -57,12 +57,16 @@ const previewTitle = previewModal.querySelector(".modal__preview-title");
 
 // Functions //
 
-function closePopup(popup) {
-  popup.classList.remove("modal_opened");
+function openPopup(popup) {
+  popup.classList.remove("modal_closing");
+  popup.classList.add("modal_opened");
 }
 
-function openPopup(popup) {
-  popup.classList.add("modal_opened");
+function closePopup(popup) {
+  popup.classList.add("modal_closing");
+  setTimeout(() => {
+    popup.classList.remove("modal_opened", "modal_closing");
+  }, 300);
 }
 
 function getCardElement(cardData) {
