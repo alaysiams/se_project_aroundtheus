@@ -55,6 +55,7 @@
             name="title"
             placeholder="Name"
             id="profile-name-input"
+            required
           />
           <input
             class="modal__name"
@@ -76,13 +77,14 @@
           type="button"
         ></button>
         <h2 class="modal__popup-heading">New Place</h2>
-        <form class="modal__form" id="card-form">
+        <form class="modal__form" id="card-form" required>
           <input
             class="modal__name"
             type="text"
             name="title"
             placeholder="Title"
             id="card-name-input"
+            required
           />
           <input
             class="modal__name"
@@ -90,6 +92,7 @@
             name="description"
             placeholder="Image link"
             id="card-description-input"
+            required
           />
           <button class="modal__button" type="submit">Create</button>
         </form>
