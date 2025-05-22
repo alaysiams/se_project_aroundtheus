@@ -63,6 +63,7 @@
             name="description"
             placeholder="Description"
             id="profile-description-input"
+            required
           />
           <button class="modal__button" type="submit">Save</button>
         </form>
@@ -77,7 +78,7 @@
           type="button"
         ></button>
         <h2 class="modal__popup-heading">New Place</h2>
-        <form class="modal__form" id="card-form" required>
+        <form class="modal__form" id="card-form">
           <input
             class="modal__name"
             type="text"
@@ -88,7 +89,7 @@
           />
           <input
             class="modal__name"
-            type="text"
+            type="url"
             name="description"
             placeholder="Image link"
             id="card-description-input"
@@ -106,7 +107,7 @@
           id="preview-close-button"
           type="button"
         ></button>
-        <img class="modal__preview-image" src="#" alt="" />
+        <img class="modal__preview-image" src="#" alt="Preview Location" />
         <p class="modal__preview-title"></p>
       </div>
     </div>
@@ -114,7 +115,7 @@
     <template id="card-template">
       <li class="card">
         <button class="card__delete" type="button"></button>
-        <img src="" class="card__image" alt="" />
+        <img src="#" class="card__image" alt="Location" />
         <div class="card__description">
           <h2 class="card__title"></h2>
           <button class="card__like" type="button"></button>
