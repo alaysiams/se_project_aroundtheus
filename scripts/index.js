@@ -57,18 +57,6 @@ const previewTitle = previewModal.querySelector(".modal__preview-title");
 
 // Functions //
 
-function openPopup(popup) {
-  popup.classList.remove("modal_closing");
-  popup.classList.add("modal_opened");
-}
-
-function closePopup(popup) {
-  popup.classList.add("modal_closing");
-  setTimeout(() => {
-    popup.classList.remove("modal_opened", "modal_closing");
-  }, 300);
-}
-
 function getCardElement(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
   const cardImageEl = cardElement.querySelector(".card__image");

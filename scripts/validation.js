@@ -59,26 +59,6 @@ function setEventListeners(formEl, options) {
   }
 }
 
-function closePopup(modal) {
-  modal.classList.add("modal_closing");
-
-  modal.addEventListener(
-    "animationend",
-    () => {
-      modal.classList.remove("modal_opened", "modal_closing");
-      modal.style.display = "none";
-    },
-    { once: true }
-  );
-}
-
-function openPopup(modal) {
-  modal.style.display = "flex";
-  requestAnimationFrame(() => {
-    modal.classList.add("modal_opened");
-  });
-}
-
 function addOverlayClickClose(modal) {
   modal.addEventListener("click", (e) => {
     if (e.target === modal) {
@@ -87,14 +67,42 @@ function addOverlayClickClose(modal) {
   });
 }
 
-document.addEventListener("keydown", (e) => {
+function handleEscapeKey(e) {
   if (e.key === "Escape") {
     const openedModal = document.querySelector(".modal.modal_opened");
     if (openedModal) {
       closePopup(openedModal);
     }
   }
-});
+}
+
+function openPopup(modal) {
+  modal.style.display = "flex";
+  modal.classList.remove("modal_closing");
+
+  requestAnimationFrame(() => {
+    modal.classList.add("modal_opened");
+    document.addEventListener("keydown", handleEscapeKey);
+  });
+}
+
+function closePopup(modal) {
+  modal.classList.add("modal_closing");
+
+  function onClose() {
+    modal.classList.remove("modal_opened", "modal_closing");
+    modal.style.display = "none";
+    document.removeEventListener("keydown", handleEscapeKey);
+  }
+
+  modal.addEventListener("animationend", onClose, { once: true });
+
+  setTimeout(() => {
+    if (modal.classList.contains("modal_closing")) {
+      onClose();
+    }
+  }, 300);
+}
 
 function enableValidation(options) {
   const formEls = [...document.querySelectorAll(options.formSelector)];
