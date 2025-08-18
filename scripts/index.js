@@ -91,23 +91,22 @@ function renderCard(cardData) {
   cardListEl.prepend(cardElement);
 }
 
-function resetFormValidation(formEl, config) {
-  const inputList = Array.from(formEl.querySelectorAll(config.inputSelector));
-  const submitButton = formEl.querySelector(config.submitButtonSelector);
+// function resetFormValidation(formEl, config) {
+//   const inputList = Array.from(formEl.querySelectorAll(config.inputSelector));
 
-  inputList.forEach((inputEl) => {
-    const errorEl = formEl.querySelector(`#${inputEl.id}-error`);
-    if (errorEl) {
-      errorEl.textContent = "";
-    }
-    inputEl.classList.remove(config.inputErrorClass);
-  });
+//   inputList.forEach((inputEl) => {
+//     const errorEl = formEl.querySelector(`#${inputEl.id}-error`);
+//     if (errorEl) {
+//       errorEl.textContent = "";
+//     }
+//     inputEl.classList.remove(config.inputErrorClass);
+//   });
 
-  if (submitButton) {
-    submitButton.classList.add(config.inactiveButtonClass);
-    submitButton.disabled = true;
-  }
-}
+//   if (submitButton) {
+//     submitButton.classList.add(config.inactiveButtonClass);
+//     submitButton.disabled = true;
+//   }
+// }
 
 // Event Handlers //
 
@@ -127,7 +126,7 @@ function handleCardFormSubmit(e) {
   const newCard = getCardElement({ name, link });
   cardListEl.prepend(newCard);
 
-  cardEditForm.reset(); // Clear input fields
+  resetFormValidation(cardEditForm, config); // Clear input fields
   closePopup(cardAddModal); // Close the modal
 }
 
@@ -138,7 +137,7 @@ profileEditButton.addEventListener("click", () => {
   profileDescriptionInput.value = profileDescription.textContent;
 
   openPopup(profileEditModal);
-  resetFormValidation(profileEditForm, validationConfig);
+  resetFormValidation(profileEditForm, config);
 });
 
 profileEditCloseButton.addEventListener("click", function () {
@@ -149,7 +148,6 @@ profileEditForm.addEventListener("submit", handleProfileFormSubmit);
 
 cardAddButton.addEventListener("click", () => {
   openPopup(cardAddModal);
-  resetFormValidation(profileEditForm, validationConfig);
 });
 
 cardAddCloseButton.addEventListener("click", function () {
