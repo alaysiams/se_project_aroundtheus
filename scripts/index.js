@@ -91,23 +91,6 @@ function renderCard(cardData) {
   cardListEl.prepend(cardElement);
 }
 
-// function resetFormValidation(formEl, config) {
-//   const inputList = Array.from(formEl.querySelectorAll(config.inputSelector));
-
-//   inputList.forEach((inputEl) => {
-//     const errorEl = formEl.querySelector(`#${inputEl.id}-error`);
-//     if (errorEl) {
-//       errorEl.textContent = "";
-//     }
-//     inputEl.classList.remove(config.inputErrorClass);
-//   });
-
-//   if (submitButton) {
-//     submitButton.classList.add(config.inactiveButtonClass);
-//     submitButton.disabled = true;
-//   }
-// }
-
 // Event Handlers //
 
 function handleProfileFormSubmit(e) {
