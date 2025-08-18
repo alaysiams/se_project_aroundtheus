@@ -148,12 +148,8 @@
 }
 
 .modal__preview-image {
-  max-width: 75vw;
-  max-height: 75vh;
   object-fit: contain;
-  margin: 0 auto;
-
-  position: relative;
+  width: 100%;
 }
 
 .modal__preview-title {

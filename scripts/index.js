@@ -91,6 +91,24 @@ function renderCard(cardData) {
   cardListEl.prepend(cardElement);
 }
 
+function resetFormValidation(formEl, config) {
+  const inputList = Array.from(formEl.querySelectorAll(config.inputSelector));
+  const submitButton = formEl.querySelector(config.submitButtonSelector);
+
+  inputList.forEach((inputEl) => {
+    const errorEl = formEl.querySelector(`#${inputEl.id}-error`);
+    if (errorEl) {
+      errorEl.textContent = "";
+    }
+    inputEl.classList.remove(config.inputErrorClass);
+  });
+
+  if (submitButton) {
+    submitButton.classList.add(config.inactiveButtonClass);
+    submitButton.disabled = true;
+  }
+}
+
 // Event Handlers //
 
 function handleProfileFormSubmit(e) {
@@ -118,9 +136,9 @@ function handleCardFormSubmit(e) {
 profileEditButton.addEventListener("click", () => {
   profileNameInput.value = profileName.textContent;
   profileDescriptionInput.value = profileDescription.textContent;
-  profileEditModal.classList.add("modal_opened");
 
   openPopup(profileEditModal);
+  resetFormValidation(profileEditForm, validationConfig);
 });
 
 profileEditCloseButton.addEventListener("click", function () {
@@ -131,6 +149,7 @@ profileEditForm.addEventListener("submit", handleProfileFormSubmit);
 
 cardAddButton.addEventListener("click", () => {
   openPopup(cardAddModal);
+  resetFormValidation(profileEditForm, validationConfig);
 });
 
 cardAddCloseButton.addEventListener("click", function () {
@@ -146,3 +165,53 @@ closePreviewModal.addEventListener("click", () => {
 initialCards.forEach((cardData) => {
   renderCard(cardData);
 });
+
+function addOverlayClickClose(modal) {
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      closePopup(modal);
+    }
+  });
+}
+
+function handleEscapeKey(e) {
+  if (e.key === "Escape") {
+    const openedModal = document.querySelector(".modal.modal_opened");
+    if (openedModal) {
+      closePopup(openedModal);
+    }
+  }
+}
+
+function openPopup(modal) {
+  modal.style.display = "flex";
+  modal.classList.remove("modal_closing");
+
+  requestAnimationFrame(() => {
+    modal.classList.add("modal_opened");
+    document.addEventListener("keydown", handleEscapeKey);
+  });
+
+  // const modal = formEl.closest(".modal");
+  if (modal) {
+    addOverlayClickClose(modal);
+  }
+}
+
+function closePopup(modal) {
+  modal.classList.add("modal_closing");
+
+  function onClose() {
+    modal.classList.remove("modal_opened", "modal_closing");
+    modal.style.display = "none";
+    document.removeEventListener("keydown", handleEscapeKey);
+  }
+
+  modal.addEventListener("animationend", onClose, { once: true });
+
+  setTimeout(() => {
+    if (modal.classList.contains("modal_closing")) {
+      onClose();
+    }
+  }, 300);
+}
