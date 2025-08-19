@@ -64,19 +64,13 @@ function enableValidation(options) {
 
 function resetFormValidation(formEl, config) {
   const inputList = Array.from(formEl.querySelectorAll(config.inputSelector));
+  const submitButton = formEl.querySelector(config.submitButtonSelector);
 
   inputList.forEach((inputEl) => {
-    const errorEl = formEl.querySelector(`#${inputEl.id}-error`);
-    if (errorEl) {
-      errorEl.textContent = "";
-    }
-    inputEl.classList.remove(config.inputErrorClass);
+    hideInputError(formEl, inputEl, config);
   });
 
-  if (submitButton) {
-    submitButton.classList.add(config.inactiveButtonClass);
-    submitButton.disabled = true;
-  }
+  toggleButtonState(inputList, submitButton, config);
 }
 
 const config = {

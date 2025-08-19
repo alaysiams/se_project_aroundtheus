@@ -108,6 +108,7 @@ function handleCardFormSubmit(e) {
 
   const newCard = getCardElement({ name, link });
   cardListEl.prepend(newCard);
+  cardEditForm.reset();
 
   resetFormValidation(cardEditForm, config); // Clear input fields
   closePopup(cardAddModal); // Close the modal
