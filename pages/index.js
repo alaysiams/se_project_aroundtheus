@@ -1,3 +1,6 @@
+import Card from "../components/card.js";
+import FormValidator from "../components/FormValidator.js";
+
 const initialCards = [
   {
     name: "Yosemite Valley",
@@ -25,7 +28,19 @@ const initialCards = [
   },
 ];
 
+const cardData = {
+  name: "Yosemite Valley",
+  link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
+};
+
 // Elements //
+const config = {
+  inputSelector: ".modal__input",
+  submitButtonSelector: ".modal__button",
+  inactiveButtonClass: "modal__button_disabled",
+  inputErrorClass: "modal__input_type_error",
+  errorClass: "modal__error_visible",
+};
 
 const profileEditButton = document.querySelector("#profile-edit-button");
 const profileEditModal = document.querySelector("#modal-popup");
@@ -40,8 +55,6 @@ const profileDescriptionInput = document.querySelector(
 );
 const profileEditForm = profileEditModal.querySelector("#profile-form");
 const cardListEl = document.querySelector(".cards__list");
-const cardTemplate =
-  document.querySelector("#card-template").content.firstElementChild;
 
 const cardAddModal = document.querySelector("#add-popup");
 const cardAddButton = document.querySelector("#add-button");
@@ -55,39 +68,23 @@ const previewImage = previewModal.querySelector(".modal__preview-image");
 const closePreviewModal = document.querySelector("#preview-close-button");
 const previewTitle = previewModal.querySelector(".modal__preview-title");
 
+const profileFormValidator = new FormValidator(config, profileEditForm);
+profileFormValidator.enableValidation();
+const cardFormValidator = new FormValidator(config, cardEditForm);
+cardFormValidator.enableValidation();
+
 // Functions //
 
-function getCardElement(cardData) {
-  const cardElement = cardTemplate.cloneNode(true);
-  const cardImageEl = cardElement.querySelector(".card__image");
-  const cardTitleEl = cardElement.querySelector(".card__title");
-  cardTitleEl.textContent = cardData.name;
-  cardImageEl.src = cardData.link;
-  cardImageEl.alt = cardData.name;
-  const cardLike = cardElement.querySelector(".card__like");
-
-  cardLike.addEventListener("click", () => {
-    cardLike.classList.toggle("card__like_active");
-  });
-
-  const cardDelete = cardElement.querySelector(".card__delete");
-
-  cardDelete.addEventListener("click", () => {
-    cardElement.remove();
-  });
-
-  cardImageEl.addEventListener("click", () => {
-    previewImage.src = cardData.link;
-    previewImage.alt = cardData.name;
-    previewTitle.textContent = cardData.name;
-    openPopup(previewModal);
-  });
-
-  return cardElement;
+function handleImageClick(name, link) {
+  previewImage.src = link;
+  previewImage.alt = name;
+  previewTitle.textContent = name;
+  openPopup(previewModal);
 }
 
 function renderCard(cardData) {
-  const cardElement = getCardElement(cardData);
+  const card = new Card(cardData, "#card-template", handleImageClick);
+  const cardElement = card.generateCard();
   cardListEl.prepend(cardElement);
 }
 
@@ -103,14 +100,17 @@ function handleProfileFormSubmit(e) {
 
 function handleCardFormSubmit(e) {
   e.preventDefault();
+
   const name = cardNameInput.value;
   const link = cardLinkInput.value;
 
-  const newCard = getCardElement({ name, link });
-  cardListEl.prepend(newCard);
+  const card = new Card({ name, link }, "#card-template", handleImageClick);
+  const cardElement = card.generateCard();
+  cardListEl.prepend(cardElement);
+
   cardEditForm.reset();
 
-  resetFormValidation(cardEditForm, config); // Clear input fields
+  cardFormValidator.resetValidation(); // Clear input fields
   closePopup(cardAddModal); // Close the modal
 }
 
@@ -121,7 +121,7 @@ profileEditButton.addEventListener("click", () => {
   profileDescriptionInput.value = profileDescription.textContent;
 
   openPopup(profileEditModal);
-  resetFormValidation(profileEditForm, config);
+  profileFormValidator.resetValidation();
 });
 
 profileEditCloseButton.addEventListener("click", function () {
@@ -131,6 +131,8 @@ profileEditCloseButton.addEventListener("click", function () {
 profileEditForm.addEventListener("submit", handleProfileFormSubmit);
 
 cardAddButton.addEventListener("click", () => {
+  cardEditForm.reset();
+  cardFormValidator.resetValidation();
   openPopup(cardAddModal);
 });
 
