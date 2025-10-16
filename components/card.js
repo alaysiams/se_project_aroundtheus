@@ -34,12 +34,10 @@ export default class Card {
   }
 
   _getTemplate() {
-    this._cardTemplate = document
+    return document
       .querySelector(this._cardSelector)
       .content.querySelector(".card")
       .cloneNode(true);
-
-    return this._cardTemplate;
   }
 
   _setEventListeners() {
@@ -53,7 +51,7 @@ export default class Card {
     });
 
     this._cardImageElement.addEventListener("click", () => {
-      this._handleImageClick(this);
+      this._handleImageClick({ name: this._name, link: this._link });
     });
   }
 
