@@ -2,6 +2,7 @@ import Card from "./card.js";
 import FormValidator from "./FormValidator.js";
 import { initialCards } from "./card.js";
 import "../pages/index.css";
+import Section from "./Section.js";
 
 // Elements //
 const config = {
@@ -25,7 +26,19 @@ const profileDescriptionInput = document.querySelector(
   "#profile-description-input"
 );
 const profileEditForm = profileEditModal.querySelector("#profile-form");
-const cardListEl = document.querySelector(".cards__list");
+// const cardListEl = document.querySelector(".cards__list");
+
+const cardSection = new Section(
+  {
+    items: initialCards,
+    renderer: (item) => {
+      const card = new Card(item, "#card-template", handleImageClick);
+      const cardEl = card.generateCard();
+      cardSection.addItem(cardEl);
+    },
+  },
+  ".cards__list"
+);
 
 const cardAddModal = document.querySelector("#add-popup");
 const cardAddButton = document.querySelector("#add-button");
@@ -124,12 +137,10 @@ closePreviewModal.addEventListener("click", () => {
 function renderCard(cardData) {
   const card = new Card(cardData, "#card-template", handleImageClick);
   const cardEl = card.generateCard();
-  cardListEl.prepend(cardEl);
+  cardSection.addItem(cardEl);
 }
 
-initialCards.forEach((cardData) => {
-  renderCard(cardData);
-});
+cardSection.renderItems();
 
 function addOverlayClickClose(modal) {
   if (!modal._overlayClickBound) {
