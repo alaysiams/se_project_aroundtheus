@@ -1,6 +1,7 @@
-import Card from "../components/card.js";
-import FormValidator from "../components/FormValidator.js";
-import { initialCards } from "../components/card.js";
+import Card from "./card.js";
+import FormValidator from "./FormValidator.js";
+import { initialCards } from "./card.js";
+import "../pages/index.css";
 
 // Elements //
 const config = {
