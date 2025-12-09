@@ -1,16 +1,11 @@
-# Project 3: Around The U.S.
+<h1 align="center">Hi 👋, I'm Alaysia Samuel</h1>
+<h3 align="center">A full-stack developer</h3>
 
-### Features
+- 🔭 I’m currently working on [Around the US](https://github.com/alaysiams/se_project_aroundtheus)
 
-- Flexbox
-- Grid
-- Positioning
-- BEM
+<h3 align="left">Connect with me:</h3>
+<p align="left">
+</p>
 
-## Brief
-
-This is my first project alone of the Software Engineering program at TripleTen. It was created using HTML and CSS, based on the design brief.
-This project is made so all the elements are displayed correctly on popular screen sizes.
-
-- [Link to the project](https://alaysiams.github.io/se_project_aroundtheus/)
-- [Link to video](https://drive.google.com/file/d/1-uoBkFouqdk55r-JWRStKoDkZhG2kBLa/view?usp=sharing)
+<h3 align="left">Languages and Tools:</h3>
+<p align="left"> <a href="https://babeljs.io/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/babeljs/babeljs-icon.svg" alt="babel" width="40" height="40"/> </a> <a href="https://www.figma.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/figma/figma-icon.svg" alt="figma" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> </a> </p>
