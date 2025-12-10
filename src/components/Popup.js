@@ -4,23 +4,15 @@ export default class Popup {
     this._handleEScClose = this._handleEScClose.bind(this);
   }
 
-  open() {
-    this._popup.style.display = "flex";
-    this._popup.classList.remove("modal_closing");
-    requestAnimationFrame(() => {
-      this._popup.classList.add("modal_opened");
-    });
-    document.addEventListener("keydown", this._handleEScClose);
-  }
+  oopen() {
+  this._popup.classList.add("modal_opened");
+  document.addEventListener("keydown", this._handleEScClose);
+}
 
-  close() {
-    this._popup.classList.add("modal_closing");
-
-    const onClose = () => {
-      this._popup.classList.remove("modal_opened", "modal_closing");
-      this._popup.style.display = "none";
-      document.removeEventListener("keydown", this._handleEScClose);
-    };
+close() {
+  this._popup.classList.remove("modal_opened");
+  document.removeEventListener("keydown", this._handleEScClose);
+};
 
     this._popup.addEventListener("animationend", onClose, { once: true });
 
