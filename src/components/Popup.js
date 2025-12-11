@@ -4,23 +4,14 @@ export default class Popup {
     this._handleEScClose = this._handleEScClose.bind(this);
   }
 
-  oopen() {
-  this._popup.classList.add("modal_opened");
-  document.addEventListener("keydown", this._handleEScClose);
-}
+  open() {
+    this._popup.classList.add("modal_opened");
+    document.addEventListener("keydown", this._handleEScClose);
+  }
 
-close() {
-  this._popup.classList.remove("modal_opened");
-  document.removeEventListener("keydown", this._handleEScClose);
-};
-
-    this._popup.addEventListener("animationend", onClose, { once: true });
-
-    setTimeout(() => {
-      if (this._popup.classList.contains("modal_closing")) {
-        onClose();
-      }
-    }, 300);
+  close() {
+    this._popup.classList.remove("modal_opened");
+    document.removeEventListener("keydown", this._handleEScClose);
   }
 
   _handleEScClose(e) {
